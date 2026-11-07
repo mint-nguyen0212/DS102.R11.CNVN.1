@@ -1,12 +1,3 @@
-"""Assignment 1: Logistic Regression (NumPy) cho bai toan phan loai rating sach.
-
-Target (Target B): chi giu cac sach co rating 1, 2, 4, 5 (bo rating 3).
-    y = 1 neu rating in {4, 5}  (sach duoc danh gia cao)
-    y = 0 neu rating in {1, 2}  (sach bi danh gia thap)
-
-Chay:  .venv\\Scripts\\python.exe assignment_1.py
-"""
-
 from pathlib import Path
 
 import matplotlib
@@ -17,7 +8,8 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from logistic_regression_1 import LogisticRegressionRebuild
+from assignment_1.logistic_regression_1 import LogisticRegressionRebuild
+
 
 DATA_PATH = Path("data/books_new.csv")
 FIGURE_DIR = Path("figures")
@@ -41,7 +33,6 @@ RANDOM_STATE = 42
 
 
 def load_data(path: Path = DATA_PATH):
-    """Doc du lieu, bo rating 3 va cac tieu de trung lap, tra ve (X, y)."""
     df = pd.read_csv(path)
     df = df.drop_duplicates(subset="title").reset_index(drop=True)
     df = df[df["rating"].isin(POSITIVE_RATINGS | NEGATIVE_RATINGS)].reset_index(drop=True)
@@ -52,14 +43,13 @@ def load_data(path: Path = DATA_PATH):
 
 
 def standardize(X_train: np.ndarray, X_test: np.ndarray):
-    """Chuan hoa z-score; thong ke chi tinh tren tap train de tranh ro ri du lieu."""
     mu = X_train.mean(axis=0)
     sd = X_train.std(axis=0) + 1e-8
     return (X_train - mu) / sd, (X_test - mu) / sd
 
 
 def plot_loss(loss_history, path: Path = FIGURE_DIR / "loss_curve.png"):
-    """Ve duong loss trong qua trinh train."""
+    """Ve bieu do loss"""
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
     fig, ax = plt.subplots(figsize=(8, 5))
