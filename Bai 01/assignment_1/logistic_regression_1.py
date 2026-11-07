@@ -19,7 +19,6 @@ class LogisticRegressionRebuild:
         return 1 / (1 + np.exp(-logits))
 
     def loss_fn(self, y_hat: np.ndarray, Y: np.ndarray):
-        """Binary cross-entropy trung binh."""
         eps = 1e-12
         y_hat = np.clip(y_hat, eps, 1 - eps)
         return -((1 - Y) * np.log(1 - y_hat) + Y * np.log(y_hat)).mean()
