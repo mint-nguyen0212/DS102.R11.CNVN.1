@@ -1,0 +1,9 @@
+Training: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:00<00:00, 1776.43it/s, loss=1.5976]
+
+Training result:
+Loss (train) 1.5976
+Testing and evaluation result:
+Precision    0.1319
+Recall       0.1483
+F1-Score     0.1137
+Da luu bieu do loss: figures\loss_curve_softmax.png
