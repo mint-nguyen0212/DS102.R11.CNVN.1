@@ -1,15 +1,3 @@
-"""Assignment 2: Softmax Regression (NumPy) cho bai toan phan loai rating sach.
-
-Target: phan loai 5 muc rating (1, 2, 3, 4, 5).
-    label 0 = rating 1
-    label 1 = rating 2
-    label 2 = rating 3
-    label 3 = rating 4
-    label 4 = rating 5
-
-Chay:  .venv\\Scripts\\python.exe assignment_2.py
-"""
-
 from pathlib import Path
 
 import matplotlib
@@ -101,3 +89,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
